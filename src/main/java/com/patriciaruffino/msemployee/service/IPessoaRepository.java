@@ -1,4 +1,4 @@
-package com.patriciaruffino.msemployee.repository;
+package com.patriciaruffino.msemployee.service;
 
 import com.patriciaruffino.msemployee.model.Pessoa;
 

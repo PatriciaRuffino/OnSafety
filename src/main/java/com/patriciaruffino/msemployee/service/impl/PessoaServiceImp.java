@@ -1,13 +1,14 @@
-package com.patriciaruffino.msemployee.service;
+package com.patriciaruffino.msemployee.service.impl;
 
 import com.patriciaruffino.msemployee.DAO.PessoaDAO;
 import com.patriciaruffino.msemployee.model.Pessoa;
-import com.patriciaruffino.msemployee.repository.IPessoaRepository;
+import com.patriciaruffino.msemployee.service.IPessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class PessoaServiceImp  implements IPessoaRepository {
 
     @Autowired
