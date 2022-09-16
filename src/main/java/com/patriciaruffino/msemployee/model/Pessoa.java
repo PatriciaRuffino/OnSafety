@@ -1,5 +1,8 @@
 package com.patriciaruffino.msemployee.model;
 
+import com.patriciaruffino.msemployee.validarCpf.Cpf;
+import com.patriciaruffino.msemployee.validarCpf.CpfValidator;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -7,13 +10,14 @@ import java.time.LocalDate;
 @Table(name = "pessoa")
 public class Pessoa {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idpessoa")
     private Long id;
 
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    @Column(name = "cpf", nullable = false, length = 11, unique = true)
+    @Column(name = "cpf")
+    @Cpf
     private String cpf;
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
@@ -70,4 +74,7 @@ public class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
+
+
