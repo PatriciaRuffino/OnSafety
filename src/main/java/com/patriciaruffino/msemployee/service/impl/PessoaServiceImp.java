@@ -15,10 +15,7 @@ public class PessoaServiceImp  implements IPessoaRepository {
     private PessoaDAO dao;
     @Override
     public Pessoa cadastrar(Pessoa novo) {
-        if (novo.getNome() != null){
-            return dao.save(novo);
-        }
-        return null;
+        return dao.save(novo);
     }
 
     @Override

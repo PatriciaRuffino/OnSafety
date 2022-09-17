@@ -16,7 +16,7 @@ public class Pessoa {
 
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    @Column(name = "cpf")
+    @Column(name = "cpf", unique = true)
     @Cpf
     private String cpf;
     @Column(name = "data_nascimento", nullable = false)
