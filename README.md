@@ -13,14 +13,21 @@ Obrigatória a utilização do Spring Boot no backend e banco de dados MySql.<br
 Interface pode ser web ou mobile, com frameworks de livre escolha do programador.<br>
 
 Para rodar a aplicação é necessário que esteja instalado em sua máquina o Maven e o MySQL! <br>
-1 --> Faço o clone do projeto: "git clone https://github.com/PatriciaRuffino/OnSafety.git"<br>
+1 --> Faça o clone do projeto: "git clone https://github.com/PatriciaRuffino/OnSafety.git"<br>
 2 --> entre na pasta OnSafety e execute o comando " mvn clean install", para criar a pasta target <br>
 3 --> entre na pasta target e execute o comando "java -jar ms-employee-0.0.1-SNAPSHOT.jar" <br>
 4 --> Abra o browser e digite "http://localhost:8080/home" no seu navegador. <br><br>
-<img src="https://user-images.githubusercontent.com/65633304/190898717-af2e78f7-b6ca-4419-812c-ad89fe11207e.png" style="width:700px"><br> <br>
-Ao entrar nesta tela, clique em "Adicionar pessoa" e digite os dados solicitados. PS: O CPF deve ser um número válido! <br>
 
-<img src="https://user-images.githubusercontent.com/65633304/190898910-10efc595-31df-45a4-89df-48eb4ab4dfa8.png" style="width:700px"> <br>
+Ao entrar nesta tela, clique em "Adicionar pessoa" para ser redirecionado para a tela de formulário. <br>
+<img src="https://user-images.githubusercontent.com/65633304/190898717-af2e78f7-b6ca-4419-812c-ad89fe11207e.png" style="width:700px"><br> <br>
+
+Preencha os dados, mas atenção em digitar um CPF válido.
+<img src="https://user-images.githubusercontent.com/65633304/190899092-c67f4b82-2df6-4b6c-8484-4c2353ecafeb.png" style="width:700px"> <br>
 
 O icone de lápis é para editar dados e a lixeira é para excluir o cadastro.<br>
+<img src="https://user-images.githubusercontent.com/65633304/190898910-10efc595-31df-45a4-89df-48eb4ab4dfa8.png" style="width:700px"> <br>
+
+API: A documentação da API está disponível em "http://localhost:8080/swagger-ui.html".  
+
+
 
