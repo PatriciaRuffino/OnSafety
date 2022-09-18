@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Entity
@@ -14,12 +15,13 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idpessoa")
     private Long id;
-
+    @NotEmpty(message = "erro.nome")
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
     @Column(name = "cpf", unique = true, length =12 )
     @Cpf
     private String cpf;
+
     @Column(name = "data_nascimento")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
