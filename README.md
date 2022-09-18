@@ -16,5 +16,7 @@ Para rodar a aplicação é necessário que esteja instalado em sua máquina o M
 1 --> Faço o clone do projeto: "git clone https://github.com/PatriciaRuffino/OnSafety.git"<br>
 2 --> entre na pasta OnSafety e execute o comando " mvn clean install", para criar a pasta target <br>
 3 --> entre na pasta target e execute o comando "java -jar ms-employee-0.0.1-SNAPSHOT.jar" <br>
-4 --> Abra o browser e digite "http://localhost:8080/home" no seu navegador. <br>
+4 --> Abra o browser e digite "http://localhost:8080/home" no seu navegador. <br><br>
+<img src="https://user-images.githubusercontent.com/65633304/190898717-af2e78f7-b6ca-4419-812c-ad89fe11207e.png" style="width:700px"><br> <br>
+Ao entrar nesta tela, clique em "Adicionar pessoa" e digite os dados solicitados. PS: O CPF deve ser um número válido! <br>
 
