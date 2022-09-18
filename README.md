@@ -20,3 +20,7 @@ Para rodar a aplicação é necessário que esteja instalado em sua máquina o M
 <img src="https://user-images.githubusercontent.com/65633304/190898717-af2e78f7-b6ca-4419-812c-ad89fe11207e.png" style="width:700px"><br> <br>
 Ao entrar nesta tela, clique em "Adicionar pessoa" e digite os dados solicitados. PS: O CPF deve ser um número válido! <br>
 
+<img src="https://user-images.githubusercontent.com/65633304/190898910-10efc595-31df-45a4-89df-48eb4ab4dfa8.png" style="width:700px"> <br>
+
+O icone de lápis é para editar dados e a lixeira é para excluir o cadastro.<br>
+
