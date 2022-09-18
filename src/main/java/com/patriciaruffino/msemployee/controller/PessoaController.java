@@ -1,54 +1,72 @@
 package com.patriciaruffino.msemployee.controller;
 
+import com.patriciaruffino.msemployee.Repository.PessoaRepository;
 import com.patriciaruffino.msemployee.model.Pessoa;
-import com.patriciaruffino.msemployee.service.impl.PessoaServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
-@RestController
+@Controller
 public class PessoaController {
 
     @Autowired
-    private PessoaServiceImp service;
+    private PessoaRepository repository;
 
-    @GetMapping("/pessoas")
-    public List<Pessoa> buscarTodos (){
-        return service.buscarTodos();
-    }
-    @GetMapping("pessoas/{id}")
-    public ResponseEntity<Pessoa> buscarPessoaPorId(@PathVariable Long id){
-        Pessoa res = service.buscarPessoaPorId(id);
-        if(res != null){
-            return ResponseEntity.ok(res);
-        }
-        return ResponseEntity.notFound().build();
-    }
-    @PostMapping("/pessoas")
-    public ResponseEntity<Pessoa> cadastrar(@Valid @RequestBody Pessoa novo){
-        Pessoa res = service.cadastrar(novo);
-        if(res != null){
-            ResponseEntity.ok(novo);
-        }
-        return ResponseEntity.badRequest().build();
-    }
-    @PutMapping("/pessoas/{id}")
-    public ResponseEntity<Pessoa> atualizarDados (@RequestBody Pessoa dados){
-        Pessoa res = service.atualizarDados(dados);
-        if (res !=null){
-            return ResponseEntity.ok(dados);
-        }
-        return ResponseEntity.notFound().build();
+
+
+    @GetMapping("/form")
+    public String pessoasForm(Pessoa pessoa) {
+
+        return "addFuncForm";
     }
 
-    @DeleteMapping("/pessoas/{id}")
-    public ResponseEntity<Pessoa> excluir (@PathVariable Long id){
-        service.excluir(id);
-        return ResponseEntity.ok().build();
+    // Adiciona novo funcionario
+    @RequestMapping(method = RequestMethod.POST, value = "/add")
+    public String salvar(Pessoa pessoa) {
+        repository.save(pessoa);
+        return "redirect:/home";
     }
+
+    // Acessa o formulario de edição
+    @GetMapping("form/{id}")
+    public String updateForm(Model model, @PathVariable(name = "id") Long id) {
+
+        Pessoa pessoa = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+
+        model.addAttribute("pessoa", pessoa);
+        return "atualizaForm";
+    }
+
+    // Atualiza funcionario
+    @PostMapping("update/{id}")
+    public String alterarProduto(@Valid Pessoa pessoa, BindingResult result, @PathVariable Long id) {
+
+        if (result.hasErrors()) {
+            return "redirect:/form";
+        }
+
+        repository.save(pessoa);
+        return "redirect:/home";
+    }
+
+    @GetMapping("delete/{id}")
+    @CacheEvict(value = "pessoa", allEntries = true)
+    public String delete(@PathVariable(name = "id") Long id, Model model) {
+
+        Pessoa pessoa = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+
+       repository.delete(pessoa);
+        return "redirect:/home";
+    }
+
 
 }
+
+

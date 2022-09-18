@@ -1,7 +1,7 @@
 package com.patriciaruffino.msemployee.controller;
 
+import com.patriciaruffino.msemployee.Repository.PessoaRepository;
 import com.patriciaruffino.msemployee.model.Pessoa;
-import com.patriciaruffino.msemployee.service.impl.PessoaServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +13,11 @@ import java.util.List;
 @Controller
 public class PageController {
     @Autowired
-    private PessoaServiceImp service;
+    private PessoaRepository dao;
 
     @GetMapping("/home")
     public String home (Model model){
-      List<Pessoa> pessoas = service.buscarTodos();
+      List<Pessoa> pessoas = dao.findAll();
       model.addAttribute("pessoas", pessoas);
       return "home";
     }

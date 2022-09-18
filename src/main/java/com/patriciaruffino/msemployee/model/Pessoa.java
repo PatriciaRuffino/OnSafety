@@ -1,7 +1,9 @@
 package com.patriciaruffino.msemployee.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.patriciaruffino.msemployee.validarCpf.Cpf;
-import com.patriciaruffino.msemployee.validarCpf.CpfValidator;
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,7 +13,7 @@ import java.time.LocalDate;
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idpessoa")
+    @Column(name="idpessoa")
     private Long id;
 
     @Column(name = "nome", nullable = false, length = 255)
@@ -19,7 +21,8 @@ public class Pessoa {
     @Column(name = "cpf", unique = true)
     @Cpf
     private String cpf;
-    @Column(name = "data_nascimento", nullable = false)
+    @Column(name = "data_nascimento")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
     @Column(name = "email", nullable = false, length = 155)
     private String email;
