@@ -13,6 +13,13 @@ Obrigatória a utilização do Spring Boot no backend e banco de dados MySql.<br
 Interface pode ser web ou mobile, com frameworks de livre escolha do programador.<br>
 
 Para rodar a aplicação é necessário que esteja instalado em sua máquina o Maven e o MySQL! <br>
+
+Configuração do Banco de Dados:<br>
+1 --> Depois de efetuar o clone deste projeto, entre na pasta OnSafety > src > main > application.properties <br>
+2 --> para configurar o seu MySQL digite o nome do seu usuario em "spring.datasource.username= <  DIGITE O SEU USUARIO >"  <br>
+3 --> depois informe a senha do seu banco em "spring.datasource.password= < DIGITE A SUA SENHA > "  <br>
+
+
 1 --> Faça o clone do projeto: "git clone https://github.com/PatriciaRuffino/OnSafety.git"<br>
 2 --> entre na pasta OnSafety e execute o comando " mvn clean install", para criar a pasta target <br>
 3 --> entre na pasta target e execute o comando "java -jar ms-employee-0.0.1-SNAPSHOT.jar" <br>
