@@ -8,7 +8,7 @@
 
 <div th:replace="~{layoutBase :: navbar}"></div>
 <div class="container">
-    <h1 class="mb-3">Atualizar informacoes</h1>
+    <h1 class="mb-3">Atualizar cadastro</h1>
     <form action="/home" th:object="${pessoa}" th:action="@{/update/{id}(id=${pessoa.id})}" method="post">
 
         <div th:replace="~{layoutBase :: form}"></div>

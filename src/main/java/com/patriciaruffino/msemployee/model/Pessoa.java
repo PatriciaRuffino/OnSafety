@@ -1,7 +1,6 @@
 package com.patriciaruffino.msemployee.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.patriciaruffino.msemployee.validarCpf.Cpf;
+import com.patriciaruffino.msemployee.model.validarCpf.Cpf;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -18,7 +17,7 @@ public class Pessoa {
 
     @Column(name = "nome", nullable = false, length = 255)
     private String nome;
-    @Column(name = "cpf", unique = true)
+    @Column(name = "cpf", unique = true, length =12 )
     @Cpf
     private String cpf;
     @Column(name = "data_nascimento")

@@ -1,11 +1,7 @@
-package com.patriciaruffino.msemployee.validarCpf;
+package com.patriciaruffino.msemployee.model.validarCpf;
 
-import com.patriciaruffino.msemployee.model.Pessoa;
-
-import javax.persistence.*;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.InputMismatchException;
 
 public class CpfValidator implements ConstraintValidator<Cpf, String> {
 

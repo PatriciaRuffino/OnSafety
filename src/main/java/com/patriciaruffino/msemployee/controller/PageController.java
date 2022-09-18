@@ -13,11 +13,11 @@ import java.util.List;
 @Controller
 public class PageController {
     @Autowired
-    private PessoaRepository dao;
+    private PessoaRepository repository;
 
     @GetMapping("/home")
     public String home (Model model){
-      List<Pessoa> pessoas = dao.findAll();
+      List<Pessoa> pessoas = repository.findAll();
       model.addAttribute("pessoas", pessoas);
       return "home";
     }
